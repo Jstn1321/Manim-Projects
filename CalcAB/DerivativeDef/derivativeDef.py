@@ -15,7 +15,7 @@ class DerivativeDef(Scene):
             stroke_color=BLUE     
         )
 
-        self.play(Write(axes))
+        self.play(Write(axes), run_time = 2)
         self.play(Create(sin_graph, run_time=2))
         self.wait()
 
@@ -26,3 +26,12 @@ class DerivativeDef(Scene):
         dotb = Dot(color = RED)
         dotb.move_to(axes.i2gp(2, sin_graph))
         self.play(FadeIn(dotb,scale=0.5))
+
+        dotb_tracker = ValueTracker(2)
+        f_always(
+            dotb.move_to,
+            lambda: axes.i2gp(dotb_tracker.get_value(), sin_graph)
+        )
+
+        self.play(dotb_tracker.animate.set_value(0.3), run_time = 5)
+        self.wait()
