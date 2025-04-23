@@ -19,6 +19,10 @@ class DerivativeDef(Scene):
         self.play(Create(sin_graph, run_time=2))
         self.wait()
 
-        dot = Dot(color = RED)
-        dot.move_to(axes.i2gp(0.3, sin_graph))
-        self.play(FadeIn(dot,scale=0.5))
+        dota = Dot(color = RED)
+        dota.move_to(axes.i2gp(0.3, sin_graph))
+        self.play(FadeIn(dota,scale=0.5))
+
+        dotb = Dot(color = RED)
+        dotb.move_to(axes.i2gp(2, sin_graph))
+        self.play(FadeIn(dotb,scale=0.5))
