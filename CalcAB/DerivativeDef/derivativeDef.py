@@ -4,39 +4,48 @@ import math
 class DerivativeDef(Scene):
     def construct(self):
         axes = Axes(
-            x_range=[-1, 2.5], 
-            y_range=[-1, 1],
+            x_range=[-5, 5], 
+            y_range=[-5, 5],
             axis_config={"color": WHITE}
         )
         axes.add_coordinates()
         
-        sin_graph = axes.plot(
-            lambda x: np.sin(x),  
-            stroke_color=BLUE     
+        cubic_func = axes.plot(
+            lambda x: 0.1*x*x,  
+            stroke_color=BLUE,
+            x_range=[-5,5,0.001]     
         )
 
+        dx = ValueTracker(3)
+        x = ValueTracker(1)
+
         self.play(Write(axes), run_time = 2)
-        self.play(Create(sin_graph, run_time=2))
+        self.play(Create(cubic_func, run_time=2))
         self.wait()
 
-        dota = Dot(color = RED)
-        dota.move_to(axes.i2gp(0.3, sin_graph))
+        dota = always_redraw(lambda: Dot(color = RED))
+        dota.move_to(axes.i2gp(x, cubic_func))
         self.play(FadeIn(dota,scale=0.5))
 
         dotb = Dot(color = RED)
-        dotb.move_to(axes.i2gp(2, sin_graph))
+        dotb.move_to(axes.i2gp(2, cubic_func))
         self.play(FadeIn(dotb,scale=0.5))
 
-        dotb_tracker = ValueTracker(2)
+        dotb_tracker = ValueTracker(4)
         f_always(
             dotb.move_to,
-            lambda: axes.i2gp(dotb_tracker.get_value(), sin_graph)
+            lambda: axes.i2gp(dotb_tracker.get_value(), cubic_func)
         )
 
-        dx = ValueTracker(1.7)
+        
 
-        derv = always_redraw(lambda : axes.get_secant_slope_group(graph = sin_graph, x = 0.3,dx = dx.get_value(), secant_line_color=PURPLE, dy_line_color= YELLOW, dx_line_color=GREEN, secant_line_length=7))
+        derv = always_redraw(lambda : axes.get_secant_slope_group(graph = cubic_func, x = x.get_value(),dx = dx.get_value(), secant_line_color=PURPLE, dy_line_color= YELLOW, dx_line_color=GREEN, secant_line_length=9))
 
         self.play(Create(derv))
         self.play(dx.animate.set_value(0.01),dotb_tracker.animate.set_value(0.3), run_time = 8)
+        self.wait()
+        self.remove(dotb)
+        self.play(x.animate.set_value(-2), run_time = 6)
+        self.wait()
+        self.play(x.animate.move_to(2), run_time = 8)
         self.wait()
