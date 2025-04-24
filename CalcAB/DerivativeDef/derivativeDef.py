@@ -34,8 +34,17 @@ class DerivativeDef(Scene):
         )
 
        
-        derv = axes.get_secant_slope_group(graph = sin_graph, x = dota.get_center(), dx = dotb.get_center() - dota.get_center(), secant_line_color = PURPLE, secant_line_length = 6)
-        self.play(FadeIn(derv), run_time = 2)
+        derv = always_redraw(
+            lambda: axes.get_secant_slope_group(
+                graph = sin_graph, 
+                x = dota.get_center(), 
+                dx = dotb_tracker.get_value() - 0.229, 
+                secant_line_color = PURPLE, 
+                secant_line_length = 6
+                )
+            )
+        
+        self.add(derv, run_time = 2)
         self.wait()
         self.play(dotb_tracker.animate.set_value(0.3), run_time = 5)
         self.wait()
