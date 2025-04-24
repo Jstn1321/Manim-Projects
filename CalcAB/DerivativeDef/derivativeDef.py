@@ -35,8 +35,8 @@ class DerivativeDef(Scene):
 
         dx = ValueTracker(1.7)
 
-        derv = always_redraw(lambda : axes.get_secant_slope_group(graph = sin_graph, x = 0.3,dx = dx.get_value(), secant_line_color=PURPLE, dy_line_color= YELLOW, dx_line_color=GREEN, secant_line_length=8))
+        derv = always_redraw(lambda : axes.get_secant_slope_group(graph = sin_graph, x = 0.3,dx = dx.get_value(), secant_line_color=PURPLE, dy_line_color= YELLOW, dx_line_color=GREEN, secant_line_length=7))
 
         self.play(Create(derv))
-        self.play(dx.animate.set_value(0.01),dotb_tracker.animate.set_value(0.3), run_time = 5)
+        self.play(dx.animate.set_value(0.01),dotb_tracker.animate.set_value(0.3), run_time = 8)
         self.wait()
