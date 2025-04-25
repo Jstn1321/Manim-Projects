@@ -7,6 +7,7 @@ class RiemannSum(Scene):
         axes = Axes(
             x_range=[-1, 5],
             y_range=[-1, 5],
+            y_length=5,
             axis_config={"color": WHITE, "include_tip": False},
         ).to_edge(DL, buff=0.5).add_coordinates()
 
@@ -18,7 +19,7 @@ class RiemannSum(Scene):
 
         title = Tex("The Integral")
         # 0 + 0.81 + 2.48 + 3.87 + 3.84
-        sumdx1 = MathTex(r"(0 * 1) + (0.81 * 1) + (2.48 * 1) + (3.87 * 1) + (3.84 * 1)")
+        sumdx1 = MathTex(r"(0 \times 1) + (0.81 \times 1) + (2.48 \times 1) + (3.87 \times 1) + (3.84 \times 1)")
         sumdx1.to_edge(UP, buff=1)
 
         dx = ValueTracker(1)
