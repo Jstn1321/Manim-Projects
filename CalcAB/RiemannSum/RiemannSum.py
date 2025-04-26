@@ -17,10 +17,18 @@ class RiemannSum(Scene):
             x_range=[-1,5]
         )
 
+        func_label = MathTex(r"-0.19x^3 + x^2").next_to(axes.i2gp(3.5, func), UP)
+
         title = Tex("The Integral")
         # 0 + 0.81 + 2.48 + 3.87 + 3.84
-        sumdx1 = MathTex(r"(0 \times 1) + (0.81 \times 1) + (2.48 \times 1) + (3.87 \times 1) + (3.84 \times 1)")
+        finiteSumForm = MathTex(r"\sum_{i = 1}^{5}-0.19x_{i}^3 + x_{i}^2")
+        finiteSumForm.to_edge(UP, buff=1)
+        sumdx1 = MathTex(r" = (0 \times 1) + (0.81 \times 1) + (2.48 \times 1) + (3.87 \times 1) + (3.84 \times 1)")
         sumdx1.to_edge(UP, buff=1)
+        sumEq = MathTex(r"\sum_{i = 1}^{infty}-0.19x_{i}^3 + x_{i}^2")
+        sumEq.to_edge(UP, buff=1)
+        intgralNot = MathTex(r"\int_{0}^{5} -0.19x^3+x^2 \,dx")
+        intgralNot.to_edge(UP, buff=1)
 
         dx = ValueTracker(1)
 
@@ -40,13 +48,13 @@ class RiemannSum(Scene):
         self.play(Write(title), run_time = 2)
         self.wait(1.5)
         self.play(title.animate.to_edge(UP, buff=1))
-        self.play(Write(axes), Create(func))
+        self.play(Write(axes), Create(func), Write(func_label))
         self.play(Create(rieman_rect))
-        self.play(ReplacementTransform(title, sumdx1))
+        self.play(ReplacementTransform(title, finiteSumForm))
+        self.wait(2)
+        self.play(ReplacementTransform(finiteSumForm, sumdx1))
         self.wait(1.5)
+        self.play(ReplacementTransform(sumdx1, sumEq), run_time = 1)
         self.play(dx.animate.set_value(0.1), run_time=10)#Change back to 0.01
         self.wait()
-        self.play(FadeOut(rieman_rect), FadeIn(area_func),run_time=1)
-
-
-        
+        self.play(FadeOut(rieman_rect), FadeIn(area_func),ReplacementTransform(sumdx1, intgralNot), run_time=1)
