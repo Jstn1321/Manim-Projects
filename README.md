@@ -1,6 +1,6 @@
-<h1 align="center">Manim</h1>
+<h1 align="center">Manimimations</h1>
 
-<h4 align="center">My Manimimations for math topics I find intresting</h4>
+<h4 align="center">My Manimimations for topics I find intresting</h4>
 
 
 <h1></h1>
