@@ -31,6 +31,7 @@ class TaylorSeries(Scene):
             lambda x: np.sin(x),
             stroke_color = BLUE
         )
+        func_label = MathTex(r"sin(x)").next_to(axes.i2gp(8, func), UP)
 
         taylor1 = axes.plot(lambda x: taylorSeries(x, 1), stroke_color = PURE_RED)
         taylor5 = axes.plot(lambda x: taylorSeries(x, 5), stroke_color = PURE_RED)
@@ -42,7 +43,7 @@ class TaylorSeries(Scene):
 
         self.play(Write(title))
         self.wait(1.5) 
-        self.play(title.animate.to_edge(UP, buff=1), Write(axes), Write(func))
+        self.play(title.animate.to_edge(UP, buff=1), Write(axes), Write(func), Write(func_label))
         self.play(ReplacementTransform(title, expandTaylorSeries))
         self.wait(2)
         self.play(ReplacementTransform(expandTaylorSeries, fullExpandSeries))
