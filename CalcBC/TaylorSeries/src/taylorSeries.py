@@ -13,7 +13,7 @@ class TaylorSeries(Scene):
 
         title = Tex("The Taylor Series")
         expandTaylorSeries = MathTex(r"f(a) + \frac{f'(a)}{1!}(x - a) + \frac{f''(a)}{2!}(x-a)^2 + ...").to_edge(UP, buff=0.5)
-        fullExpandSeries = MathTex(r"f(a) + \frac{f'(a)}{1!}(x - a) + \frac{f''(a)}{2!}(x-a)^2 + ... = \sum_{n = 0}^{\infty}\frac{f^(n)(a)}{n!}(x - a)^n").to_edge(UP, buff=0.5)
+        fullExpandSeries = MathTex(r" = \sum_{n = 0}^{\infty}\frac{f^(n)(a)}{n!}(x - a)^n").to_edge(UP, buff=0.5)
         
         
         
@@ -28,3 +28,4 @@ class TaylorSeries(Scene):
         self.play(ReplacementTransform(title, expandTaylorSeries))
         self.wait(2)
         self.play(ReplacementTransform(expandTaylorSeries, fullExpandSeries))
+        self.wait(2)
