@@ -32,12 +32,12 @@ class TaylorSeries(Scene):
             stroke_color = BLUE
         )
 
-        taylor1 = axes.plot(lambda x: taylorSeries(x, 1), stroke_color = RED)
-        taylor5 = axes.plot(lambda x: taylorSeries(x, 5), stroke_color = RED)
-        taylor10 = axes.plot(lambda x: taylorSeries(x, 10), stroke_color = RED)
+        taylor1 = axes.plot(lambda x: taylorSeries(x, 1), stroke_color = PURE_RED)
+        taylor5 = axes.plot(lambda x: taylorSeries(x, 5), stroke_color = PURE_RED)
+        taylor10 = axes.plot(lambda x: taylorSeries(x, 10), stroke_color = PURE_RED)
         finalFunc = axes.plot(
             lambda x: np.sin(x),
-            stroke_color = RED
+            stroke_color = PURE_RED
         )
 
         self.play(Write(title))
