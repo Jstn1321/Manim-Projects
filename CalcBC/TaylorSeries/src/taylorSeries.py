@@ -17,6 +17,7 @@ class TaylorSeries(Scene):
         taylor5Tex = MathTex(r"sin(x) \approx \sum_{n = 0}^{5}\frac{(-1)^n}{(2n+1)!}x^{2n+1}").to_edge(UP, buff=0.5)
         taylor10Tex = MathTex(r"sin(x) \approx \sum_{n = 0}^{10}\frac{(-1)^n}{(2n+1)!}x^{2n+1}").to_edge(UP, buff=0.5)
         taylorInfTex = MathTex(r"sin(x) = \sum_{n = 0}^{\infty}\frac{(-1)^n}{(2n+1)!}x^{2n+1}").to_edge(UP, buff=0.5)
+        mclarinSeries = MathTex(r"\sum_{n = 0}^{\infty}\frac{f^n(0)}{n!}x^n")
 
         def taylorSeries(x, n):
             sum = 0
@@ -55,4 +56,6 @@ class TaylorSeries(Scene):
         self.play(ReplacementTransform(taylor5, taylor10), ReplacementTransform(taylor5Tex, taylor10Tex))
         self.wait(1.5)
         self.play(ReplacementTransform(taylor10, finalFunc), ReplacementTransform(taylor10Tex, taylorInfTex))
+        self.wait(1.5)
+        self.play(FadeOut(Group(axes, func, func_label, finalFunc)), ReplacementTransform(taylorInfTex, mclarinSeries), run_time = 2)
         self.wait(1.5)
