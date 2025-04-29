@@ -20,6 +20,10 @@ https://github.com/user-attachments/assets/0ec49efa-a3bb-40f9-b67d-1deed8ed5004
 
 https://github.com/user-attachments/assets/58158675-72f1-4882-acb6-ed47a091a34d
 
+## **The Mean Value Theorum Animation
+
+https://github.com/user-attachments/assets/641af06f-6a64-46cd-8873-1ff82a8a2b45
+
 # **CalcBC**
 
 ## **Taylor Series**
