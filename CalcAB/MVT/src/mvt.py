@@ -13,8 +13,13 @@ class mvt(Scene):
         axes_label = axes.get_axis_labels(x_label="x", y_label="y")
 
         func = axes.plot(
-            lambda x: -(x)**3 + 3*x**2+x,
+            lambda x: -1 * (x)**3 + 3*x**2 + x,
             stroke_color = BLUE
+        )
+
+        avgSlope = axes.plot(
+            lambda x: x,
+            stroke_color = GREEN
         )
 
         mvtAb = Text(r"The MVT")
@@ -22,6 +27,9 @@ class mvt(Scene):
         mvtDef = Text("for a continuous and differentiable function, there exists \n a point where the derivative equals the average \n rate of change over an interval").scale(0.8)
         mvtAbP2 = Text(r"The MVT").shift(UP*1.5)
 
+        x = ValueTracker(0) #Go up till x = 2
+        derv = always_redraw(lambda: axes.get_secant_slope_group(graph=func, x = x.get_value(), dx = 0.01, secant_line_length=10, secant_line_color=YELLOW))
+        
         self.play(Write(mvtAb))
         self.wait(1.5)
         self.play(ReplacementTransform(mvtAb, mvtExp))
@@ -30,4 +38,9 @@ class mvt(Scene):
         self.wait(6)
         self.play(ReplacementTransform(mvtExp, mvtAbP2), FadeOut(mvtDef))
         self.play(mvtAbP2.animate.to_edge(UP, buff=1), Write(axes), Write(axes_label), Write(func))
+        self.wait(1.5)
+        self.play(Write(avgSlope))
+        self.wait(1.5)
+        self.play(Write(derv))
+        self.play(x.animate.set_value(2))
         self.wait(1.5)
