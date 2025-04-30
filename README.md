@@ -8,7 +8,7 @@
 <p align="center">
   <a href="#calcab">CalcAB</a> •
   <a href="#calcbc">CalcBC</a> • 
-  <a href="gametheory">Game Theory</a>
+  <a href="#theory">Game Theory</a>
 </p>
 
 # **CalcAB**
@@ -31,4 +31,4 @@ https://github.com/user-attachments/assets/641af06f-6a64-46cd-8873-1ff82a8a2b45
 
 https://github.com/user-attachments/assets/087a27da-4ca7-4a1e-ae58-a58e887fece7
 
-# **Game Theory**
+# **Theory**
