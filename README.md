@@ -29,6 +29,10 @@ https://github.com/user-attachments/assets/641af06f-6a64-46cd-8873-1ff82a8a2b45
 
 https://github.com/user-attachments/assets/aa5b4056-511d-454d-a37c-5cf892f6fc33
 
+## **The Intermediate Value Theorum Animation**
+
+https://github.com/user-attachments/assets/94454ea1-442f-419e-8922-0242ffdcb2ba
+
 # **CalcBC**
 
 ## **Taylor Series**
