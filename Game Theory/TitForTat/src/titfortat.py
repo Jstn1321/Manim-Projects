@@ -23,15 +23,16 @@ class titfortat(Scene):
         p2SecondMoveText = Tex("If p2 wants to cooperate...").to_edge(UP, buff=1)
         p1ThirdMoveText = Tex("then p1 will also cooperate!").to_edge(UP, buff=1)
         p1RestofGameText = Tex("After the first move p1 will copy whatever move p2 makes").to_edge(UP, buff=1)
-        finalText = Tex("TitforTat is an extremely effective strategy because it is: ").to_edge(UL, buff=0.3)
+        finalText = Tex("TitforTat is an extremely effective strategy because it is: ").to_edge(UP, buff=1)
         
         factorsOfTitforTat = BulletedList(
             "Clear - it is simple allowing other players to understand it",
             "Nice - it begins with cooperation and only defects if the other player defects",
             "Provocable - can defect if the opponent wants to defect",
             "Forgiving - cooperates if the other player cooperates and dosen't hold grudges",
-        ).next_to(finalText, DOWN, buff=1).scale(0.8).shift(RIGHT*0.5)
+        ).next_to(finalText, DOWN, buff=1).scale(0.8)
         
+        finalTitle = Tex("TitForTat")
         #factorsOfTitforTat = BulletedList("Item 1adwadadwa d", "Item 2", "Item 3")
         # Create the empty table first
         empty_values = [["" for _ in range(7)] for _ in range(2)]
@@ -112,3 +113,7 @@ class titfortat(Scene):
         )
         self.play(Write(factorsOfTitforTat))
         self.wait(10)
+        self.play(FadeOut(factorsOfTitforTat))
+        self.play(ReplacementTransform(finalText, finalTitle))
+        self.wait(1)
+        self.play(Unwrite(finalTitle), run_time = 2)
