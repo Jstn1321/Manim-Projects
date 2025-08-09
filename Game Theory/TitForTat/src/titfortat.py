@@ -21,7 +21,7 @@ class titfortat(Scene):
         p1SecondMoveText = Tex("then p1 will also defect!").to_edge(UP, buff=1)
         p2SecondMoveText = Tex("If p2 wants to cooperate...").to_edge(UP, buff=1)
         p1ThirdMoveText = Tex("then p1 will also cooperate!").to_edge(UP, buff=1)
-        p1RestofGameText = Tex("After the first move p1 will copy what ever move p2 makes")
+        p1RestofGameText = Tex("After the first move p1 will copy what ever move p2 makes").to_edge(UP, buff=1)
         # Create the empty table first
         empty_values = [["" for _ in range(7)] for _ in range(2)]  # Create a blank table with the same dimensions
         empty_table = Table(
@@ -36,14 +36,14 @@ class titfortat(Scene):
         p1SecondMove = empty_table.get_cell((2,3))
         p1ThirdMove = empty_table.get_cell((2, 4))
         p1FourthMove = empty_table.get_cell((2, 5))
-        p1FithMove = empty_table.get_cell((2, 6))
+        p1fifthMove = empty_table.get_cell((2, 6))
         p1SixthMove = empty_table.get_cell((2, 7))
         p1SeventhMove = empty_table.get_cell((2, 8))
         p2FirstMove = empty_table.get_cell((3, 2))
         p2SecondMove = empty_table.get_cell((3, 3))
         p2ThirdMove = empty_table.get_cell((3, 4))
         p2FourthMove = empty_table.get_cell((3, 5))
-        p2FithMove = empty_table.get_cell((3, 6))
+        p2FifthMove = empty_table.get_cell((3, 6))
         p2SixthMove = empty_table.get_cell((3, 7))
         p2SeventhMove = empty_table.get_cell((3, 8))
         
@@ -67,3 +67,5 @@ class titfortat(Scene):
         self.wait(4)
         self.play(ReplacementTransform(p2SecondMoveText, p1ThirdMoveText), Write(Text("C").move_to(p1ThirdMove.get_center())))
         self.wait(2)
+        self.play(Write(Text("C").move_to(p2ThirdMove.get_center())), Write(Text("C").move_to(p1FourthMove.get_center())), Write(Text("D").move_to(p2FourthMove.get_center())), Write(Text("D").move_to(p1fifthMove.get_center())), Write(Text("D").move_to(p2FifthMove.get_center())), Write(Text("D").move_to(p1SixthMove.get_center())), Write(Text("C").move_to(p2SixthMove.get_center())), Write(Text("C").move_to(p1SeventhMove.get_center())), Write(Text("D").move_to(p2SeventhMove.get_center())), ReplacementTransform(p1ThirdMoveText, p1RestofGameText))
+        self.wait(7)
