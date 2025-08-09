@@ -40,3 +40,7 @@ https://github.com/user-attachments/assets/94454ea1-442f-419e-8922-0242ffdcb2ba
 https://github.com/user-attachments/assets/087a27da-4ca7-4a1e-ae58-a58e887fece7
 
 # **Theory**
+
+## **Tit For Tat** 
+
+https://github.com/user-attachments/assets/8fc0890c-0806-4cae-b8c0-e8f5081c4c73
