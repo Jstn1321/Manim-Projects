@@ -1,10 +1,43 @@
 from manim import *
-
-class sequences(Scene):
+#TO DO WRITE THE SEQUENCES INTRODUCTION
+class definitionOfSeries(Scene):
     def construct(self):
         classTitle = Tex("Calculus 2/BC").to_edge(UP, buff=1)
-        title = Tex("Series").scale(2)
+        title = Tex("Series")
+
+        exSeq = MathTex(r"\left\{ a_n \right\}_{n=1}^{\infty}")
+        exSeqExpand = MathTex(r"\left\{ a_n \right\}_{n=1}^{\infty} = a_1, a_2, a_3, a_4, \cdots, a_n")
+        s_1 = MathTex(r"s_1 = a_1")
+        s_2 = MathTex(r"s_2 = a_1 + a_2")
+        s_3 = MathTex(r"s_3 = a_1 + a_2 + a_3").to_edge(UP,buff=4)
+        s_4 = MathTex(r"s_4 = a_1 + a_2 + a_3 + a_4").to_edge(UP,buff=5)
+        partialSum = MathTex(r"s_n = a_1 + a_2 + a_3 + a_4 + \cdots + a_n")
+        partialSumEqualsSeries = MathTex(r"s_n = a_1 + a_2 + a_3 + a_4 + \cdots + a_n = \sum_{i=1}^{n}a_i") 
 
         self.play(Write(classTitle))
         self.play(Write(title))
+        self.wait(2)
+        self.play(FadeOut(Group(title, classTitle)))
+        self.wait(2)
+        self.play(Write(exSeq))
+        self.wait(2)
+        self.play(ReplacementTransform(exSeq, exSeqExpand))
+        self.wait(2)
+        self.play(exSeqExpand.animate.to_edge(UP, buff=1))
+        self.wait(2)
+        self.play(Write(s_1))
+        self.wait(2)
+        self.play(s_1.animate.to_edge(UP, buff=2))
+        self.wait(2)
+        self.play(Write(s_2))
+        self.wait(2)
+        self.play(s_2.animate.to_edge(UP, buff=3))
+        self.wait(2)
+        self.play(Write(s_3))
+        self.wait(2)
+        self.play(Write(s_4))
+        self.wait(2)
+        self.play(ReplacementTransform(Group(s_1, s_2, s_3, s_4), partialSum), exSeqExpand.animate.move_to(ORIGIN).shift(UP))
+        self.wait(2)
+        self.play(ReplacementTransform(Group(partialSum, exSeqExpand), partialSumEqualsSeries))
         self.wait(2)
