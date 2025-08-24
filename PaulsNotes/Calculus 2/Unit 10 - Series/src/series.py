@@ -17,6 +17,7 @@ class definitionOfSeries(Scene):
         limitToInfOFSeries = MathTex(r" = \lim_{x\to\infty} \sum_{i=1}^{n}a_i").next_to(limitToInfOfPartialSum,RIGHT*0.5)
         infiniteSeriesNotation = MathTex(r" = \sum_{i=1}^{\infty}a_i").next_to(limitToInfOFSeries, RIGHT*0.5)
 
+        self.wait(2)
         self.play(Write(classTitle))
         self.play(Write(title))
         self.wait(2)
@@ -62,6 +63,7 @@ class seriesNotation(Scene):
 
         exampleSeries = MathTex(r"\sum_{i=1}^{\infty} = \frac{3}{i^2+1}")
 
+        self.wait(2)
         self.play(Write(exampleSeries))
         self.wait(2)
         self.play(FadeOut(exampleSeries))
