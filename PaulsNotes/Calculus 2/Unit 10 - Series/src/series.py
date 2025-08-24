@@ -71,10 +71,10 @@ class seriesNotation(Scene):
 class seriesProperties(Scene):
     def construct(self):
         
-        theorum1Text = MathTex(r"\sum_{}^{}ca_n \text{, where c is any number. is also convergent and}")
+        theorum1Text = MathTex(r"\text{1. }\sum_{}^{}ca_n \text{, where c is any number. is also convergent and}")
         theorum1 = MathTex(r"\sum_{}^{}ca_n = c\sum_{}^{}a_n")
-        theorum2Text = MathTex(r"\sum_{n=k}^{\infty}a_n \pm \sum_{n=k}^{\infty}b_n \text{is also convergent and,}")
-        theorum2 = MathTex(r"\sum_{n=k}^{\infty}a_n \pm \sum_{n=k}^{\infty}b_n = \sum_{n=k}^{\infty}(a_n \pm b_n)")
+        theorum2Text = MathTex(r"\text{2. }\sum_{n=k}^{\infty}a_n \pm \sum_{n=k}^{\infty}b_n \text{is also convergent and,}")
+        theorum2 = MathTex(r"\sum_{n=k}^{\infty}a_n \pm \sum_{n=k}^{\infty}b_n = \sum_{n=k}^{\infty}(a_n \pm b_n)").next_to(theorum2Text,DOWN)
 
         self.wait(2)
         self.play(Write(theorum1Text))
@@ -83,4 +83,9 @@ class seriesProperties(Scene):
         self.play(Write(theorum1))
         self.wait(2)
         self.play(Group(theorum1Text, theorum1).animate.shift(UP*2))
+        self.wait(2)
+
+        self.play(Write(theorum2Text))
+        self.wait(2)
+        self.play(Write(theorum2))
         self.wait(2)
