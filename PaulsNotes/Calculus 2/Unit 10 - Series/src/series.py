@@ -56,3 +56,13 @@ class definitionOfSeries(Scene):
         self.wait(2)
         self.play(FadeOut(Group(partialSumEqualsSeries, limitToInfOfPartialSum, limitToInfOFSeries, infiniteSeriesNotation)))
         self.wait(2)
+
+class seriesNotation(Scene):
+    def construct(self):
+
+        exampleSeries = MathTex(r"\sum_{i=1}^{\infty} = \frac{3}{i^2+1}")
+
+        self.play(Write(exampleSeries))
+        self.wait(2)
+        self.play(FadeOut(exampleSeries))
+
