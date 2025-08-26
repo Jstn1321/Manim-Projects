@@ -75,6 +75,9 @@ class seriesProperties(Scene):
         theorum1 = MathTex(r"\sum_{}^{}ca_n = c\sum_{}^{}a_n")
         theorum2Text = MathTex(r"\text{2. }\sum_{n=k}^{\infty}a_n \pm \sum_{n=k}^{\infty}b_n \text{is also convergent and,}")
         theorum2 = MathTex(r"\sum_{n=k}^{\infty}a_n \pm \sum_{n=k}^{\infty}b_n = \sum_{n=k}^{\infty}(a_n \pm b_n)").next_to(theorum2Text,DOWN)
+        multiSeriesInc = MathTex(r"(\sum_{n=k}^{\infty}a_n)(\sum_{n=k}^{\infty}b_n) \neq \sum_{n=k}^{\infty}a_nb_n")
+        multiSeriesIncExp = MathTex(r"(a_1 + a_2 + a_3 + a_4 + \cdots + a_n)(b_1 + b_2 + b_3 + b_4 + \cdots + b_n)")
+        quadEqAnalogy = MathTex(r"")
 
         self.wait(2)
         self.play(Write(theorum1Text))
