@@ -16,7 +16,7 @@ class DivergenceTest(Scene):
         example3LimitSimplified = MathTex(r"\lim_{n\to\infty}\sum_{n = 0}^{\infty}\frac{-n^{3}}{2n^{3}}")
         example3Answer = MathTex(r"= -\frac{1}{2}").shift(DOWN*1.5)
         example3Final = MathTex(r"\sum_{n = 0}^{\infty}\frac{4n^{2}-n^{3}}{10 + 2n^{3}}")
-        example3cord = MathTex(r" \text{Diverges}").shift(DOWN*1.5)
+        example3cord = MathTex(r" -\frac{1}{2} \neq 0 \text{ it diverges}").shift(DOWN*1.5)
 
         self.play(Write(title))
         self.wait(2)
@@ -33,4 +33,9 @@ class DivergenceTest(Scene):
         self.play(Write(example3LimitSimplified))
         self.wait(2)
         self.play(Write(example3Answer))
+        self.wait(2)
+        self.play(FadeOut(Group(example3Answer, example3LimitSimplified, example3Limit)))
+        self.play(Write(example3Final))
+        self.wait(2)
+        self.play(Write(example3cord))
         self.wait(2)
