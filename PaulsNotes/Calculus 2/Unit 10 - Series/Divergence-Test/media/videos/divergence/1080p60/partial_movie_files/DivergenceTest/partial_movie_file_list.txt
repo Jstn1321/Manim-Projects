@@ -1,0 +1,5 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/user/OneDrive/Documents/Nerd-Projects/ManimAnimations/PaulsNotes/Calculus 2/Unit 10 - Series/Divergence-Test/media/videos/divergence/1080p60/partial_movie_files/DivergenceTest/3977891868_532626_223132457.mp4'
+file 'file:C:/Users/user/OneDrive/Documents/Nerd-Projects/ManimAnimations/PaulsNotes/Calculus 2/Unit 10 - Series/Divergence-Test/media/videos/divergence/1080p60/partial_movie_files/DivergenceTest/2852726489_2408024828_770938846.mp4'
+file 'file:C:/Users/user/OneDrive/Documents/Nerd-Projects/ManimAnimations/PaulsNotes/Calculus 2/Unit 10 - Series/Divergence-Test/media/videos/divergence/1080p60/partial_movie_files/DivergenceTest/2852726489_960683850_212372720.mp4'
+file 'file:C:/Users/user/OneDrive/Documents/Nerd-Projects/ManimAnimations/PaulsNotes/Calculus 2/Unit 10 - Series/Divergence-Test/media/videos/divergence/1080p60/partial_movie_files/DivergenceTest/2852726489_2408024828_1273438131.mp4'
